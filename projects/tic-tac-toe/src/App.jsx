@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from "react"
+import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import { Square } from './Componentes/Square'
 import { TURNS } from './constantes'
@@ -7,12 +7,11 @@ import { checkWinnerFrom, checkGameisOver } from './logic/board.js'
 import { WinnerModal } from './Componentes/WinnerModal.jsx'
 import { BoardComponent } from './Componentes/BoardComponent.jsx'
 
-
-function App() {
+function App () {
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board')
     return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null)
-  });
+  })
   const [turn, setTurn] = useState(() => {
     const turnFromLocalStorage = window.localStorage.getItem('turn')
     return turnFromLocalStorage ?? TURNS.X
@@ -30,10 +29,10 @@ function App() {
     window.localStorage.setItem('turn', newTurn)
     const newWinner = checkWinnerFrom(newBoard)
     if (newWinner) {
-      setWinner(newWinner);
+      setWinner(newWinner)
       confetti()
     } else if (checkGameisOver(newBoard)) {
-      setWinner(false);
+      setWinner(false)
     }
   }
   const resetGame = () => {
@@ -45,10 +44,10 @@ function App() {
   }
 
   return (
-    <main className="board">
+    <main className='board'>
       <h1>Tic tac toe</h1>
       <button onClick={resetGame}>Reset del juego</button>
-      <BoardComponent board={board} updateBoard={updateBoard}></BoardComponent>
+      <BoardComponent board={board} updateBoard={updateBoard} />
       <section className='turn'>
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
