@@ -15,7 +15,6 @@ const FollowMouse = () => {
   useEffect(() => {
     const handleMove = (event) => {
       const { clientX, clientY } = event
-      console.log('handlemove', { clientX, clientY })
       setPosition({ x: clientX, y: clientY })
     }
     if (enable) {
