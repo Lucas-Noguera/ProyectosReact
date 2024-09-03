@@ -3,6 +3,15 @@ import { useEffect, useState } from 'react'
 const FollowMouse = () => {
   const [enable, setEnable] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    document.body.classList.toggle('no-cursor', enable)
+
+    return () => {
+      document.body.classList.remove('no-cursor')
+    }
+  }, [enable])
+
   useEffect(() => {
     const handleMove = (event) => {
       const { clientX, clientY } = event
