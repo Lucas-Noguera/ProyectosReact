@@ -17,13 +17,12 @@ export function App () {
         const primerasTresPalabras = fact.split(' ', 3).join(' ')
         console.log(primerasTresPalabras)
 
-        fetch(`https://cataas.com/cat/says/${primerasTresPalabras}?size=50&color=red&json=true`)
-          .then(res => res.json())
+        fetch(`https://cataas.com/cat/says/${primerasTresPalabras}?size=50&color=red`)
           .then(response => {
             const { url } = response
-            console.log(`${url}`)
+            console.log(url)
 
-            setImageUrl(`${CAT_PREFIX_IMAGE_URL}${url}`)
+            setImageUrl(url)
           })
       })
   }, [])
