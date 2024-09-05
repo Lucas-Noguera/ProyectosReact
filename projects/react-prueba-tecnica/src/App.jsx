@@ -17,7 +17,7 @@ export function App () {
   }, [])
 
   useEffect(() => {
-    if(!fact) return
+    if (!fact) return
     const primerasTresPalabras = fact.split(' ', 3).join(' ')
     console.log(primerasTresPalabras)
 
@@ -28,7 +28,7 @@ export function App () {
 
         setImageUrl(url)
       })
-  },[fact])
+  }, [fact])
 
   return (
     <main>
