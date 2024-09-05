@@ -14,8 +14,12 @@ export function App () {
     <main>
       <h1>App de gatitos</h1>
       <button onClick={handleClick}>Get new fact</button>
-      {fact && <p>{fact}</p>}
-      {imageUrl && <img src={imageUrl} alt={`imagen creada a partir de las primeras tres palabras de "${fact}"`} />}
+      {fact && (
+        <div className='contenedor-p'><p>{fact}</p></div>
+      )}
+      <div className='contenedor-img'>
+        {imageUrl && <img src={imageUrl} alt={`imagen creada a partir de las primeras tres palabras de "${fact}"`} />}
+      </div>
     </main>
   )
 }

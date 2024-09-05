@@ -1,8 +1,92 @@
-main{
+/* Fondo oscuro para toda la página */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1c1c1c;
+  color: #f5f5f5;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor principal */
+main {
   display: flex;
   flex-direction: column;
-  place-items: center;
-  max-width: 800px;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #2c2c2c;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  width: 500px; /* Tamaño fijo para el ancho */
+  height: 500px; /* Tamaño fijo para la altura */
   margin: 0 auto;
-  font-family: system-ui;
+  align-items: center;
+}
+
+/* Título */
+h1 {
+  color: #ffcc00;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+/* Botón para obtener un nuevo hecho */
+button {
+  background-color: #ffcc00;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #ffd633;
+}
+
+/* Texto del hecho */
+p {
+  max-width: 100%; 
+  max-height: 100%; 
+  line-height: 1.4;
+  color: #e0e0e0;
+}
+
+.contenedor-img{
+  display: flex;
+  max-width: 250px; /* Tamaño fijo para el ancho */
+  max-height: 250px; /* Tamaño fijo para la altura */
+  align-items: center;
+
+
+}
+
+.contenedor-p{
+  width: 100%; /* Se ajusta al ancho del contenedor principal */
+  height: 50px; /* Altura fija */
+  margin-bottom: 20px;
+  overflow: hidden; /* Esconde el desbordamiento de texto si es demasiado largo */
+  display: flex;
+  align-items: center; /* Centra el texto verticalmente */
+  justify-content: center; /* Centra el texto horizontalmente */
+ 
+
+}
+
+/* Imagen de tamaño fijo */
+img {
+  display: flex;
+  max-width: 100%; /* La imagen no excederá el ancho del contenedor */
+  max-height: 100%; /* La imagen no excederá el alto del contenedor */
+  object-fit: contain; /* Asegura que la imagen se recorte si es necesario */
+  border-radius: 10px;
+  margin: 0 auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  background-color: #3c3c3c;
 }
