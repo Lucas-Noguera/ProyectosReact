@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { getRandomFact } from './services/facts'
+import { useCatImage } from './hooks/useCatimage'
 
 export function App () {
   const [fact, setFact] = useState()
-  const [imageUrl, setImageUrl] = useState()
+  const { imageUrl } = useCatImage({ fact })
 
   useEffect(() => {
     getRandomFact().then(setFact)
@@ -14,20 +15,6 @@ export function App () {
     const newFact = await getRandomFact()
     setFact(newFact)
   }
-
-  useEffect(() => {
-    if (!fact) return
-    const primerasTresPalabras = fact.split(' ', 3).join(' ')
-    console.log(primerasTresPalabras)
-
-    fetch(`https://cataas.com/cat/says/${primerasTresPalabras}?size=50&color=red`)
-      .then(response => {
-        const { url } = response
-        console.log(url)
-
-        setImageUrl(url)
-      })
-  }, [fact])
 
   return (
     <main>
