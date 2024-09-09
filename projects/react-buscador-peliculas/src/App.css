@@ -1,0 +1,16 @@
+main{
+    display: flex;
+    justify-content: center;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
