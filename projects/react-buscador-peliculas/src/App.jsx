@@ -1,15 +1,28 @@
 import './App.css'
 import { Movies } from './components/Movies'
-import responseMovies from './mocks/with-results.json'
+import { useMovies } from './hooks/useMovies'
+import { useState } from 'react'
 
 function App () {
-  const movies = responseMovies.Search
+  const { movies } = useMovies()
+  const [query, setQuery] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log({ query })
+  }
+
+  const handleOnchange = (event) => {
+    setQuery(event.target.value)
+    console.log({ query })
+  }
+
   return (
     <div className='page'>
       <header>
         <h1>Buscador de peliculas</h1>
-        <form action='' className='form'>
-          <input placeholder='Matrix, Avengers, Jhon Wick...' />
+        <form className='form' onSubmit={handleSubmit}>
+          <input onChange={handleOnchange} name='query' value={query} placeholder='Matrix, Avengers, Jhon Wick...' />
           <button type='submit'>Buscar</button>
         </form>
       </header>
