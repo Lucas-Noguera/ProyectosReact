@@ -4,7 +4,7 @@ import { useMovies } from './hooks/useMovies'
 import { useState, useEffect, useRef } from 'react'
 
 function useSearch () {
-  const [search, updateSearch] = useState('')
+  const [search, updateSearch] = useState('') // Asegúrate de que el valor inicial sea una cadena vacía
   const [error, setError] = useState(null)
   const isFirstInput = useRef(true)
 
@@ -30,12 +30,13 @@ function useSearch () {
     }
     setError(null)
   }, [search])
+
   return { search, updateSearch, error }
 }
 
 function App () {
-  const [sort, setSort] = useState(null)
-  const { search, updateSearch, error } = useSearch('')
+  const [sort, setSort] = useState(false)
+  const { search, updateSearch, error } = useSearch()
   const { movies, getMovie, loading } = useMovies({ search, sort })
 
   const handleSubmit = (event) => {
@@ -60,7 +61,7 @@ function App () {
             style={{
               border: '1px solid transparent',
               borderColor: error ? 'red' : 'transparent'
-            }} onChange={handleOnchange} name='query' value={search} placeholder='Matrix, Avengers, Jhon Wick...'
+            }} onChange={handleOnchange} name='query' value={search || ''} placeholder='Matrix, Avengers, Jhon Wick...'
           />
           <input type='checkbox' onChange={handleSort} checked={sort} />
           <button type='submit'>Buscar</button>
