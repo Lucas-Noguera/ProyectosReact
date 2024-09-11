@@ -34,11 +34,12 @@ function useSearch () {
 }
 
 function App () {
-  const { movies } = useMovies()
   const { search, updateSearch, error } = useSearch()
+  const { movies, getMovie } = useMovies({ search })
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    getMovie()
   }
 
   const handleOnchange = (event) => {
