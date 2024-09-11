@@ -21,6 +21,7 @@ export function useMovies ({ search, sort }) {
       setLoading(false)
     }
   }, [search])
+
   const sortedMovies = useMemo(() => {
     console.log('papeada')
     return sort

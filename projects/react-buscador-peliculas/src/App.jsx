@@ -49,7 +49,9 @@ function App () {
   }
 
   const handleOnchange = (event) => {
-    updateSearch(event.target.value)
+    const newSearch = event.target.value
+    updateSearch(newSearch)
+    getMovie({ search: newSearch })
   }
 
   return (
