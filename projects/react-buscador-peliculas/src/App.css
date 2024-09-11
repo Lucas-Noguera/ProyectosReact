@@ -35,11 +35,11 @@
     text-align: center;
   }
   
-  .movie h3, .movie p {
+  .Movie h3, .Movie p {
     margin: 0;
   }
   
-  .movie img {
+  .Movie img {
     border-radius: 8px;
     margin-top: 16px;
   }
