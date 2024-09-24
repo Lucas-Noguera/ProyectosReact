@@ -1,6 +1,10 @@
+import { Products } from './components/Products'
+import { useProducts } from './hooks/useProducts.jsx'
+
 function App () {
+  const { products } = useProducts()
   return (
-    <h1>Shopping Cart 🛒</h1>
+    <Products products={products} />
   )
 }
 
