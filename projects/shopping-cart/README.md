@@ -6,7 +6,7 @@ Ecommerce
 ✅ Añade un filtro por categoría
 ✅  Añade un filtro por precio
 
-Haz uso de useContext para evitar pasar props innecesarias.
+✅Haz uso de useContext para evitar pasar props innecesarias.
 
 Carrito:
 
