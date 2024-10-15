@@ -1,5 +1,19 @@
-const Todo = () => {
-  return <div>Todo</div>
+import  { type ListOfTodo } from '../types'
+
+interface Props {
+  todos: ListOfTodo
 }
 
-export default Todo
+export const Todos: React.FC<Props> = ({ todos }) => {
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <li key={todo.id}>
+          {todo.title}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export default Todos
