@@ -33,7 +33,7 @@ export const Footer: React.FC<Props> = ({
             className='clear-completed'
             onClick={onClearCompleted}
           >
-            Borrar tareas completadas
+            Borrar completadas
           </button>
         )
       }
