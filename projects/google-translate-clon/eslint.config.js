@@ -1,10 +1,10 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import tseslint from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import pluginReact from 'eslint-plugin-react';
-import pluginReactHooks from 'eslint-plugin-react-hooks';
-import pluginReactRefresh from 'eslint-plugin-react-refresh';
+import globals from 'globals'
+import pluginJs from '@eslint/js'
+import tseslint from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
+import pluginReact from 'eslint-plugin-react'
+import pluginReactHooks from 'eslint-plugin-react-hooks'
+import pluginReactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
   {
@@ -32,6 +32,7 @@ export default [
       ...pluginJs.configs.recommended.rules,
       ...tseslint.configs.recommended.rules,
       '@typescript-eslint/no-unused-vars': 'off',
+      'semi': ['error', 'never'],
       'quotes': ['error', 'single'],
       'indent': ['error', 2],
       'space-in-parens': ['error', 'never'],
@@ -45,7 +46,8 @@ export default [
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
       'react/self-closing-comp': ['error', { component: true, html: false }],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      
       ...pluginReactHooks.configs.recommended.rules,
     },
   },
-];
+]
