@@ -2,13 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import './App.css'
 import { useStore } from './hooks/useStore'
-import { AUTO_LANGUAGE } from './constants'
-import { ArrowIcon } from './components/icons'
+import { AUTO_LANGUAGE, VOICE_FOR_LANGUAGE } from './constants'
+import { ArrowIcon, ClipboardIcon, Speaker } from './components/icons'
 import { LanguageSelector } from './components/LanguageSelector'
 import { SectionType } from './types.d'
 import { Textarea } from './components/TextArea'
 import { useEffect } from 'react'
 import { translate } from './services/translate'
+import { useDebounce } from './hooks/useDebounce'
 
 function App() {
   const {
@@ -23,15 +24,28 @@ function App() {
     setFromText, 
     setResult} = useStore()
 
+  const debounceFromText = useDebounce(fromText, 300)
+
   useEffect(() => {
-    if (fromText === null) return
-    translate({ FromLanguage: fromLenguage, toLanguage, text: fromText })
+    if (debounceFromText === null) return
+    translate({ FromLanguage: fromLenguage, toLanguage, text: debounceFromText })
       .then(result => {
         if(result == null) return
         setResult(result)
       })
       .catch(() => {setResult('Error')})
-  }, [fromText, fromLenguage, toLanguage, setResult])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debounceFromText, fromLenguage, toLanguage])
+
+  const handleClicpBoard = () => {
+    navigator.clipboard.writeText(result).catch(() => {})
+  }
+
+  const handleSpeak = () => {
+    const utterance = new SpeechSynthesisUtterance(result)
+    utterance.lang = VOICE_FOR_LANGUAGE[toLanguage]
+    window.speechSynthesis.speak(utterance)
+  }
   
   return (
 
@@ -72,12 +86,30 @@ function App() {
               value={toLanguage}
               type={SectionType.To}
             />
-            <Textarea
-              loading={loading}
-              type={SectionType.To}
-              value={result}
-              onChange={setResult}
-            />       
+            <div style={{position: 'relative'}}>
+              <Textarea
+                loading={loading}
+                type={SectionType.To}
+                value={result}
+                onChange={setResult}
+              />
+              <div style={{position: 'absolute', left: '0', bottom: '0', display: 'flex'}}>
+                <Button 
+                  variant="link" 
+                  onClick={handleClicpBoard} 
+                >
+                  <ClipboardIcon />
+                </Button>
+
+                <Button 
+                  variant="link" 
+                  onClick={handleSpeak} 
+                >
+                  <Speaker />
+                </Button>
+              </div>
+   
+            </div>
           </Stack>
         </Col>
       </Row>

@@ -15,8 +15,12 @@ function reducer(state: State, action: Action): State {
 
   if (type === 'INTERCHANGE_LENGUAGE') {
     if (state.fromLenguage === AUTO_LANGUAGE) return state
+    const loading = state.fromText !== ''
+
     return {
       ...state,
+      loading,
+      result: '',
       fromLenguage: state.toLanguage,
       toLanguage: state.fromLenguage,
     }
@@ -46,9 +50,10 @@ function reducer(state: State, action: Action): State {
   }
 
   if (type === 'SET_FROM_TEXT') {
+    const loading = action.payload !== ''
     return {
       ...state,
-      loading: true,
+      loading,
       fromText: action.payload,
       result: '',
     }
