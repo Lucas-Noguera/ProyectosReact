@@ -31,7 +31,7 @@ function App() {
         setResult(result)
       })
       .catch(() => {setResult('Error')})
-  }, [fromText, fromLenguage, toLanguage])
+  }, [fromText, fromLenguage, toLanguage, setResult])
   
   return (
 
