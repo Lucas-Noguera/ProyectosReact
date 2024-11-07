@@ -13,16 +13,16 @@ import { useDebounce } from './hooks/useDebounce'
 
 function App() {
   const {
-    loading, 
-    fromLenguage, 
-    fromText, 
-    result, 
-    setFromLanguage, 
-    toLanguage, 
-    setToLanguage, 
-    interChangeLanguages, 
-    setFromText, 
-    setResult} = useStore()
+    loading,
+    fromLenguage,
+    fromText,
+    result,
+    setFromLanguage,
+    toLanguage,
+    setToLanguage,
+    interChangeLanguages,
+    setFromText,
+    setResult } = useStore()
 
   const debounceFromText = useDebounce(fromText, 300)
 
@@ -30,15 +30,15 @@ function App() {
     if (debounceFromText === null) return
     translate({ FromLanguage: fromLenguage, toLanguage, text: debounceFromText })
       .then(result => {
-        if(result == null) return
+        if (result == null) return
         setResult(result)
       })
-      .catch(() => {setResult('Error')})
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+      .catch(() => { setResult('Error') })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounceFromText, fromLenguage, toLanguage])
 
   const handleClicpBoard = () => {
-    navigator.clipboard.writeText(result).catch(() => {})
+    navigator.clipboard.writeText(result).catch(() => { })
   }
 
   const handleSpeak = () => {
@@ -46,7 +46,7 @@ function App() {
     utterance.lang = VOICE_FOR_LANGUAGE[toLanguage]
     window.speechSynthesis.speak(utterance)
   }
-  
+
   return (
 
     <Container fluid>
@@ -56,7 +56,7 @@ function App() {
 
         <Col>
           <Stack gap={2}>
-            <LanguageSelector onChange={setFromLanguage} 
+            <LanguageSelector onChange={setFromLanguage}
               value={fromLenguage}
               type={SectionType.From}
             />
@@ -82,39 +82,39 @@ function App() {
 
         <Col>
           <Stack gap={2}>
-            <LanguageSelector onChange={setToLanguage} 
+            <LanguageSelector onChange={setToLanguage}
               value={toLanguage}
               type={SectionType.To}
             />
-            <div style={{position: 'relative'}}>
+            <div style={{ position: 'relative' }}>
               <Textarea
                 loading={loading}
                 type={SectionType.To}
                 value={result}
                 onChange={setResult}
               />
-              <div style={{position: 'absolute', left: '0', bottom: '0', display: 'flex'}}>
-                <Button 
-                  variant="link" 
-                  onClick={handleClicpBoard} 
+              <div style={{ position: 'absolute', left: '0', bottom: '0', display: 'flex' }}>
+                <Button
+                  variant="link"
+                  onClick={handleClicpBoard}
                 >
                   <ClipboardIcon />
                 </Button>
 
-                <Button 
-                  variant="link" 
-                  onClick={handleSpeak} 
+                <Button
+                  variant="link"
+                  onClick={handleSpeak}
                 >
                   <Speaker />
                 </Button>
               </div>
-   
+
             </div>
           </Stack>
         </Col>
       </Row>
     </Container>
-    
+
   )
 }
 
