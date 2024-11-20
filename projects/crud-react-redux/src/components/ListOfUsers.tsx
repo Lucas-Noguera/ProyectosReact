@@ -10,10 +10,10 @@ import {
   Title
 } from '@tremor/react'
 import { useAppSelector } from '../hooks/store'
-import { useUserActions } from '../hooks/useUserActions'
+import { useUsersActions } from '../hooks/useUsersActions'
 export function ListOfUsers() {
   const users = useAppSelector((state) => state.users)
-  const { removeUser } = useUserActions()
+  const { removeUser } = useUsersActions()
 
   return (
     <Card>
