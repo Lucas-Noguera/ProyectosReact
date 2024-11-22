@@ -1,28 +1,32 @@
-import js from '@eslint/js'
 import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
+import pluginReact from 'eslint-plugin-react'
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+export default [
+  {files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}']},
+  {languageOptions: { globals: globals.browser }},
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-    },
-  },
-)
+      // Reglas recomendadas de ESLint, TypeScript y React
+      'semi': ['error', 'never'],
+      'quotes': ['error', 'single'],
+      'indent': ['error', 2],
+      'space-in-parens': ['error', 'never'],
+      'react/react-in-jsx-scope': 'off',
+      'react/jsx-uses-react': 'off',
+      'react/jsx-indent': ['error', 2],
+      'react/jsx-indent-props': ['error', 2],
+      'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
+      'react/jsx-closing-bracket-location': ['error', 'tag-aligned'],
+      'react/jsx-tag-spacing': ['error', { beforeSelfClosing: 'always' }],
+      'react/jsx-curly-spacing': ['error', { when: 'never', children: true }],
+      'react/prop-types': 'off',
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
+      'react/self-closing-comp': ['error', { component: true, html: false }],
+    }
+  }
+]
