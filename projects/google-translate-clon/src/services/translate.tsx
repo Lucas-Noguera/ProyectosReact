@@ -2,9 +2,7 @@ import { FromLanguage, Language } from '../types'
 import { SUPPORTED_LANGUAGES } from '../constants'
 import Groq from 'groq-sdk'
 
-const groq = new Groq({ apiKey: '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',
-  dangerouslyAllowBrowser: true
-})
+const groq = new Groq({ apiKey: import.meta.env.GROQ_API_KEY, dangerouslyAllowBrowser: true })
 
 export async function translate({
   FromLanguage,
