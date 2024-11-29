@@ -25,13 +25,13 @@ export function UserList({ showColors, users, deleteUser, changeSorting }: Props
           const color = showColors ? backGroundColor : 'transparent'
 
           return (
-            <tr key={user.email} style={{ backgroundColor: color }}>
+            <tr key={user?.email} style={{ backgroundColor: color }}>
               <td>
-                <img src={user.picture.thumbnail} alt={user.name.first} />
+                <img src={user?.picture?.thumbnail} alt={user?.name?.first} />
               </td>
-              <td>{user.name.first}</td>
-              <td>{user.name.last}</td>
-              <td>{user.location.country}</td>
+              <td>{user?.name?.first}</td>
+              <td>{user?.name?.last}</td>
+              <td>{user?.location?.country}</td>
               <td>
                 <button>Editar</button>
                 <button onClick={() => deleteUser(user.email)}>Eliminar</button>
