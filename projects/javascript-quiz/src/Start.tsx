@@ -3,9 +3,10 @@ import { useQuestionsStore } from './store/questions'
 
 export const Start = () => {
   const fetchQuestions = useQuestionsStore((state) => state.fetchQuestions)
+  const LIMIT_QUESTIONS = 5
 
   const handleClick = () => {
-    fetchQuestions(5)
+    fetchQuestions(LIMIT_QUESTIONS)
   }
   return (
     <Button onClick={handleClick} variant="contained">
