@@ -3,7 +3,7 @@ import { useQuestionsStore } from './store/questions'
 
 export const Start = () => {
   const fetchQuestions = useQuestionsStore((state) => state.fetchQuestions)
-  const LIMIT_QUESTIONS = 5
+  const LIMIT_QUESTIONS = 10
 
   const handleClick = () => {
     fetchQuestions(LIMIT_QUESTIONS)
