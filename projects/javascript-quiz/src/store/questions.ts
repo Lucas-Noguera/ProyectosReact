@@ -1,66 +1,82 @@
-import {create} from 'zustand'
+import { create } from 'zustand'
+import { persist, PersistOptions } from 'zustand/middleware'
 import { Question } from '../types'
 import confetti from 'canvas-confetti'
 
 interface State {
-    questions: Question[]
-    currentQuestion: number
-    fetchQuestions: (limit: number) => Promise<void>
-    selectAnswer: (questinId: number, answerIndex: number) => void
-    goNextQuestion: () => void
-    goPreviousQuestion: () => void
+  questions: Question[]
+  currentQuestion: number
+  fetchQuestions: (limit: number) => Promise<void>
+  selectAnswer: (questionId: number, answerIndex: number) => void
+  goNextQuestion: () => void
+  goPreviousQuestion: () => void
+  reset: () => void
 }
 
-export const useQuestionsStore = create<State>((set, get) => ({
-  questions: [],
-  currentQuestion: 0,
-  fetchQuestions: async (limit: number) => {
-    const res = await fetch('http://localhost:5173/data.json')
-    const json = await res.json()
-    const questions = json
-      .sort(() => Math.random() - 0.5)
-      .slice(0, limit)
-      .map((q: Question) => ({
-        ...q,
-        userSelectedAnswer: null, 
-        isCorrectUserAnswer: null,
-      }))
-    set({ questions })
-  },
+type MyPersist = PersistOptions<State>
 
-  selectAnswer: (questionId: number, answerIndex: number) => {
-    const {questions} = get() 
+export const useQuestionsStore = create<State>()(
+  persist(
+    (set, get) => ({
+      questions: [],
+      currentQuestion: 0,
 
-    const newQuestions = structuredClone(questions)
-    const questionIndex = newQuestions.findIndex(q => q.id === questionId)
-    const questionInfo  = newQuestions[questionIndex]
-    const isCorrectUserAnswer = questionInfo.correctAnswer === answerIndex
-    if (isCorrectUserAnswer) confetti()
-    
-    newQuestions[questionIndex] = {
-      ...questionInfo,
-      isCorrectUserAnswer,
-      userSelectedAnswer: answerIndex
-    }
+      fetchQuestions: async (limit: number) => {
+        const res = await fetch('http://localhost:5173/data.json')
+        const json = await res.json()
 
-    set({ questions: newQuestions })
-  },
+        const questions = json
+          .sort(() => Math.random() - 0.5)
+          .slice(0, limit)
+          .map((q: Question) => ({
+            ...q,
+            userSelectedAnswer: null,
+            isCorrectUserAnswer: null,
+          }))
 
-  goNextQuestion: () => {
-    const {currentQuestion, questions} = get()
-    const nextQuestion = currentQuestion + 1
+        set({ questions })
+      },
 
-    if (nextQuestion < questions.length) {
-      set({ currentQuestion: currentQuestion + 1 })
-    }
-  },
+      selectAnswer: (questionId: number, answerIndex: number) => {
+        const { questions } = get()
+        const newQuestions = structuredClone(questions)
 
-  goPreviousQuestion: () => {
-    const {currentQuestion} = get()
-    const previousQuestion = currentQuestion - 1
+        const questionIndex = newQuestions.findIndex((q) => q.id === questionId)
+        if (questionIndex === -1) return
 
-    if (previousQuestion >= 0) {
-      set({ currentQuestion: previousQuestion })
-    }
-  },
-}))
+        const questionInfo = newQuestions[questionIndex]
+        const isCorrectUserAnswer = questionInfo.correctAnswer === answerIndex
+        if (isCorrectUserAnswer) confetti()
+
+        newQuestions[questionIndex] = {
+          ...questionInfo,
+          isCorrectUserAnswer,
+          userSelectedAnswer: answerIndex,
+        }
+
+        set({ questions: newQuestions })
+      },
+
+      goNextQuestion: () => {
+        const { currentQuestion, questions } = get()
+        if (currentQuestion + 1 < questions.length) {
+          set({ currentQuestion: currentQuestion + 1 })
+        }
+      },
+
+      goPreviousQuestion: () => {
+        const { currentQuestion } = get()
+        if (currentQuestion > 0) {
+          set({ currentQuestion: currentQuestion - 1 })
+        }
+      },
+
+      reset: () => {
+        set({currentQuestion: 0, questions: []})
+      }
+    }),
+    {
+      name: 'questions', // Clave de almacenamiento en localStorage
+    } as MyPersist
+  )
+)
