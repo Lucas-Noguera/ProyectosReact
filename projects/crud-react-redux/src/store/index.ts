@@ -1,4 +1,4 @@
-import { configureStore, type Middleware, type Action, type UnknownAction } from '@reduxjs/toolkit'
+import { configureStore, type Middleware } from '@reduxjs/toolkit'
 import { toast } from 'sonner'
 import usersReducer, { rollbackUser } from './users/slice'
 
