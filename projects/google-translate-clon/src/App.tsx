@@ -41,6 +41,11 @@ function App() {
     navigator.clipboard.writeText(result).catch(() => { })
   }
 
+  window.speechSynthesis.onvoiceschanged = () => {
+    const voices = window.speechSynthesis.getVoices()
+    console.log('Available voices:', voices)
+  }
+
   const handleSpeak = () => {
     const utterance = new SpeechSynthesisUtterance(result)
     utterance.lang = VOICE_FOR_LANGUAGE[toLanguage]
