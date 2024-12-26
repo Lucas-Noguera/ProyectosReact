@@ -9,7 +9,7 @@
 | **Proyecto**                | **Enlace al Código**                                                                 | **Producción**                                                                 |
 |-----------------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
 | 🎮 **Tic Tac Toe**          | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/tic-tac-toe)   | [Ver Demo](https://proyectotictactoe26.netlify.app)                           |
-| 🛒 **Shopping Cart**        | [Ver Código](https://github.com/Lucas-Noguera/shoppingcart26)                        | [Ver Demo](https://shoppingcart26.vercel.app)                                |
+| 🛒 **Shopping Cart**        | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/shopping-cart) | [Ver Demo](https://shoppingcart26.netlify.app)                                |
 | 👥 **Random Users**         | [Ver Código](https://github.com/Lucas-Noguera/randomusers26)                         | [Ver Demo](https://randomusers26.vercel.app)                                 |
 | ❓ **JavaScript Quiz**      | [Ver Código](https://github.com/Lucas-Noguera/javascriptquiz26)                      | [Ver Demo](https://javascriptquiz26.vercel.app)                              |
 | 🌍 **Google Translate**     | [Ver Código](https://github.com/Lucas-Noguera/googletranslate26)                     | [Ver Demo](https://googletranslate26.vercel.app)                             |
