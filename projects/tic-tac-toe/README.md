@@ -1,8 +1,16 @@
-# React + Vite
+# 🎮 Tic Tac Toe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un sencillo juego de **Tic Tac Toe** (Tres en Raya) construido con **React**, **TypeScript** y **Vite**.  
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Para la interfaz de usuario.  
+- **TypeScript**: Para tipado estático y mayor mantenibilidad del código.  
+- **Vite**: Para un entorno de desarrollo rápido y eficiente.  
+
+## 🛠️ Instalación
+
+1. **Clona el repositorio**  
+   ```bash
+   git clone https://github.com/Lucas-Noguera/proyectotictactoe26.git
+   cd proyectotictactoe26
