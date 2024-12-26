@@ -1,6 +1,6 @@
-# 🖥️ Monorepositorio de Proyectos en React + TypeScript
+# 🖥️ Mi Monorepositorio de Proyectos en React + TypeScript
 
-¡Bienvenido! Este monorepositorio reúne **9 proyectos** desarrollados con **React**, **TypeScript**, y **Vite**. Cada proyecto demuestra habilidades prácticas y aborda diferentes casos de uso en el desarrollo frontend moderno. 🌟
+¡Hola! 👋 Bienvenido a mi monorepositorio. Aquí encontrarás **9 proyectos** que desarrollé con **React**, **TypeScript** y **Vite**. Cada uno de ellos es una muestra de lo que disfruto hacer: construir interfaces modernas y funcionales mientras exploro nuevas tecnologías.
 
 ---
 
@@ -20,18 +20,22 @@
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías que Utilicé
 
-- **React**: Para construir interfaces de usuario rápidas y escalables.  
-- **TypeScript**: Para agregar tipado estático, mejorar la mantenibilidad y reducir errores.  
-- **Vite**: Herramienta de desarrollo ultrarrápida para aplicaciones modernas.  
+En estos proyectos, aproveché varias herramientas y tecnologías modernas que me ayudaron a construir aplicaciones robustas y escalables:
+
+- **React**: Para crear interfaces rápidas, interactivas y reutilizables.  
+- **TypeScript**: Me gusta trabajar con tipado estático porque reduce errores y mejora la mantenibilidad del código.  
+- **Vite**: Perfecto para tener un entorno de desarrollo rápido y eficiente.  
+- **Redux**: Utilicé Redux en proyectos que requerían un manejo más complejo del estado global.  
+- **Zustand**: En proyectos más pequeños, probé esta librería ligera para manejar el estado de una forma más simple y elegante.  
 
 ---
 
 ## 🚀 Cómo Usar Este Repositorio
 
-1. **Clonar el repositorio**  
-   Clona el proyecto en tu máquina local:  
+1. **Clona el repositorio**  
+   Para empezar, clona el proyecto en tu máquina:  
    ```bash
    git clone https://github.com/Lucas-Noguera/monorepo.git
    cd monorepo
