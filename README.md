@@ -11,7 +11,7 @@
 | 🎮 **Tic Tac Toe**          | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/tic-tac-toe)   | [Ver Demo](https://proyectotictactoe26.netlify.app)                           |
 | 🛒 **Shopping Cart**        | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/shopping-cart) | [Ver Demo](https://shoppingcart26.netlify.app)                                |
 | 👥 **Random Users**         | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/prueba-tecnica-empresa-55k)| [Ver Demo](https://randomusers26.netlify.app)                                 |
-| ❓ **JavaScript Quiz**      | [Ver Código](https://github.com/Lucas-Noguera/javascriptquiz26)                      | [Ver Demo](https://javascriptquiz26.vercel.app)                              |
+| ❓ **JavaScript Quiz**      | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/javascript-quiz) | [Ver Demo](https://javascriptquiz26.netlify.app)                              |
 | 🌍 **Google Translate**     | [Ver Código](https://github.com/Lucas-Noguera/googletranslate26)                     | [Ver Demo](https://googletranslate26.vercel.app)                             |
 | 🎥 **Buscador de Películas**| [Ver Código](https://github.com/Lucas-Noguera/buscadordepeliculas26)                 | [Ver Demo](https://buscadordepeliculas26.vercel.app)                         |
 | 😺 **App de Gatitos**       | [Ver Código](https://github.com/Lucas-Noguera/pruebatecnica26)                       | [Ver Demo](https://pruebatecnica26.vercel.app)                               |
