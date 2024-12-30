@@ -14,9 +14,9 @@
 | ❓ **JavaScript Quiz**      | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/javascript-quiz) | [Ver Demo](https://javascriptquiz26.netlify.app)                              |
 | 🌍 **Google Translate**     | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/google-translate-clon) | [Ver Demo](https://googletranslate26.netlify.app)                             |
 | 🎥 **Buscador de Películas**| [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/react-buscador-peliculas) | [Ver Demo](https://buscadordepeliculas26.netlify.app)                          |
-| 😺 **App de Gatitos**       | [Ver Código](https://github.com/Lucas-Noguera/pruebatecnica26)                       | [Ver Demo](https://pruebatecnica26.vercel.app)                               |
-| 🗂️ **CRUD Redux**           | [Ver Código](https://github.com/Lucas-Noguera/crudredux26)                          | [Ver Demo](https://crudredux26.vercel.app)                                   |
-| 🐦 **Twitter Follow App**   | [Ver Código](https://github.com/Lucas-Noguera/twitterfollow26)                       | [Ver Demo](https://twitterfollow26.vercel.app)                               |
+| 😺 **App de Gatitos**       | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/react-prueba-tecnica)     | [Ver Demo](https://pruebatecnica26.netlify.app)                               |
+| 🗂️ **CRUD Redux**           | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/crud-react-redux)         | [Ver Demo](https://crudredux26.netlify.app)                                   |
+| 🐦 **Twitter Follow App**   | [Ver Código](https://github.com/Lucas-Noguera/ProyectosReact/tree/main/projects/Twitter%20Follow%20Card)  | [Ver Demo](https://twitterfollow26.netlify.app)                               |
 
 ---
 
